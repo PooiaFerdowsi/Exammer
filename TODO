@@ -1,0 +1,8 @@
+- [] complete func `insert_spec` `sqlite_api.py`
+- [] complete `main.add_question` security tests
+- [] increase security of `sqlite_api.py`
+- [] add editability feature
+- [] improve error handlers' templates.  esp `KeyError` & `Multi..`
+- [] Add docs in other languages (especially persian)
+- [] correct grammatical mistakes in the docs
+- [] extend `build.py`

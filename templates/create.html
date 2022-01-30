@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='create.css') }}" rel="stylesheet" type="text/css">
+    <title>Add Question</title>
+</head>
+<body>
+    {% if error %}
+    <script>
+        function close_errorbox($id){
+            document.getElementById($id).style.display='none';
+        }
+    </script>
+    <div class="error-box" id="error-box">
+        <span id="close-btn" onclick="close_errorbox('error-box');">&times;</span>
+        {{ error | safe }}
+    </div>
+    {% endif %}
+    <form action="{{ handler }}" method="POST" autocomplete="off">
+        <input type="text" class="box-border-question" name="question" required minlength="5">
+        <div style="margin-left: 12px;">
+            <ul>
+                <li>
+                    <input type="text" class="box-border-answer" name="one" required minlength="5">
+                    <input type="radio" name="correct" value="1" required>
+                </li>
+                <li>
+                    <input type="text" class="box-border-answer" name="two" required minlength="5">
+                    <input type="radio" name="correct" value="2" required>
+                </li>
+                <li>
+                    <input type="text" class="box-border-answer" name="three" required minlength="5">
+                    <input type="radio" name="correct" value="3" required>
+                </li>
+                <li>
+                    <input type="text" class="box-border-answer" name="four" value="{% if ans4 %}{{ ans4 }}{% endif %}" required minlength="5">
+                    <input type="radio" name="correct" value="4" required>
+                </li>
+            </ul>
+        </div>
+        <div>
+                <button id="add-btn" type="submit">Thanks. Append Question!</button>
+                <a href="/"><button id="not-btn" type="button">Nevermind. loose it!</button></a>
+        </div>
+    </form>
+</body>
+</html>

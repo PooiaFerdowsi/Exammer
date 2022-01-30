@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='view.css') }}" type="text/css">
+    <title>{{ question[1] }}</title>
+    <script>
+        /**
+         * Return -1 if none is selected
+         * Otherwise the number of the question that is selected
+        */
+        function whichIsSelected(){
+            let answers = document.getElementsByClassName("answer");
+            /**
+             * Iterate over answer boxes and check them one by one
+             * Return number+1 (=id) of selected box.
+             * Otherwise -1 
+             */
+            for (let question = 0; question < 4; question++) {
+                if(answers[question].checked == true)
+                    return ++question;
+            }
+            return -1; // none is selecte.
+        }
+
+        /*
+        The submit button is where we show an answer
+        is correct or no. so it will change its color
+        depend on answer's correctness.
+        This is done by function 'colorButtonDueToAnswer'
+        */
+       function colorButtonDueToAnswer(correctness){
+            // if answer is correct
+            if(correctness == true){
+                document.getElementById("submit").style.backgroundColor = "green";
+            } else {
+                document.getElementById("submit").style.backgroundColor = "red";
+            }
+       }
+
+       /*
+       Change the color of specified question to green
+       if question is correct. otherwise red.
+       */
+        function colorSpecifiedQuestion(id, isCorrect){
+            if(isCorrect == true){
+                document.getElementById(id).style.color = "green";
+            } else {
+                document.getElementById(id).style.color = "red";
+            }
+        }
+
+        function deo(){
+            switch (whichIsSelected().toString()){
+                case '{{ question[6] }}'.toString():
+                    colorSpecifiedQuestion('q{{ question[6]}}', true);
+                    colorButtonDueToAnswer(true)
+                    return;
+            }
+            // if answer is not correct
+            colorButtonDueToAnswer(false)
+            document.getElementById('q'+whichIsSelected().toString()).style.color = "red";
+            document.getElementById('q{{ question[6] }}').style.color = "green";
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h2 id="title">{{ question[1] }}</h2>
+        <div id="answer-box">
+            <ul>
+                <li>
+                    <span id="q1">{{ question[2] }}</span>
+                    <input type="radio" name="answer" class="answer" id="1" required>
+                </li>
+                <li>
+                    <span id="q2">{{ question[3] }}</span>
+                    <input type="radio" name="answer" class="answer" id="2" required>
+                </li>
+                <li>
+                    <span id="q3">{{ question[4] }}</span>
+                    <input type="radio" name="answer" class="answer" id="3" required>
+                </li>
+                <li>
+                    <span id="q4">{{ question[5] }}</span>
+                    <input type="radio" name="answer" class="answer" id="4" required>
+                </li>
+            </ul>
+            <button id="submit" onclick="deo()">&iquest;is it correct?</button>
+        </div>
+    </center>
+</body>
+</html>
