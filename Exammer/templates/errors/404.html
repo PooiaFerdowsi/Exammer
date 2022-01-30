@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>not found :(</title>
+<style>
+#title {
+    background-color: red;
+    width: 50%;
+    border-radius: 10px;
+}
+
+#main {
+    background-color: skyblue;
+    border-radius: 20px;
+    height: 90vh;
+}
+
+a {
+    color: black;
+}
+</style>
+</head>
+<body>
+    <center id="main">
+        <h2 id="title">You're lost!</h2>
+        <p style="font-size: 30px;">
+            Unfortunately, The page you are looking for does not exist!
+        </p>
+        <h1>404</h1>
+        <h1>not found</h1>
+        
+        <p>
+            <p style="font-size: 20px;">
+                <a href="{{ url_for('main.index') }}">Homepage</a>
+            </p>
+            <p style="font-size: 20px;">
+                <a href="{{ url_for('main.new_question') }}">New question</a>
+            </p>
+        </p>
+        <br>
+        <p>
+            {{ error }}
+        </p>
+    </center>
+</body>
+</html>
