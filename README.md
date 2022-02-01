@@ -86,14 +86,14 @@ Then open a browser and go to URL `localhost:5000`
 
 How to work with the app?
 -------------------------
-If you expected more explanation please refer to [Usage Documentation](docs/use)
+If you expected more explanation please refer to [Usage Documentation](docs/en/use)
 
 # Development docs
 Dev docs exist too to help contributors.
 
 Those instructions describe how this app works and how to develop the app in the proper route.
 
-If the code is not clear, use them instead from [Here](docs/dev)!
+If the code is not clear, use them instead from [Here](docs/en/dev)!
 
 
 # Have a nice day!
