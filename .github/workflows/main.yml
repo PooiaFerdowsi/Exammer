@@ -30,4 +30,6 @@ jobs:
         run: python3 -m pip install flask
       - name:
         run: flask run -p ${PORT}
+        env:
+            PORT: 80
         shell: bash
