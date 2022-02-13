@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: python3 pip install flask
+        run: python3 -m pip install flask
       - name:
         run: flask run -p ${PORT}
         shell: bash
